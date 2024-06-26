@@ -4,11 +4,13 @@
   "description": "Test environment for Bruno workshops",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "football-tests": "source .env && bru run Football --env Football --env-var token=$FOOTBALL_TOKEN",
+    "trello-tests": "source .env && bru run Trello --env Trello --env-var token=$TRELLO_TOKEN --env-var api_key=$TRELLO_API_KEY"
   },
   "author": "Mateusz Socha",
   "license": "ISC",
   "devDependencies": {
-    "@usebruno/cli": "^1.20.0"
+    "@usebruno/cli": "^1.20.0",
+    "dotenv": "^16.4.5"
   }
 }
