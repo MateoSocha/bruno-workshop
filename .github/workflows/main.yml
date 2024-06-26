@@ -1,0 +1,51 @@
+name: bruno cli CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run_bruno_football_api_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: npm install
+    - name: Cache Node modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Run football tests
+      env:
+        FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_TOKEN }}
+      run: bru run Football --env Football --env-var token=$FOOTBALL_TOKEN
+    - name: Save football test results
+      run: bru run folder --output football/results.json
+      continue-on-error: true
+
+  run_bruno_trello_api_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: npm install
+    - name: Cache Node modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Run trello tests
+      env:
+        TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+        TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+      run: bru run Trello --env Trello --env-var token=$TRELLO_TOKEN --env-var api_key=$TRELLO_API_KEY
+    - name: Save trello test results
+      run: bru run folder --output trello/results.json
+      continue-on-error: true
