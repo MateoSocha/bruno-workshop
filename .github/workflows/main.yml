@@ -23,10 +23,7 @@ jobs:
     - name: Run football tests
       env:
         FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_TOKEN }}
-      run: bru run Football --env Football --env-var token=$FOOTBALL_TOKEN
-    - name: Save football test results
-      run: bru run Football --output football/results.json
-      continue-on-error: true
+      run: bru run Football --env Football --env-var token=$FOOTBALL_TOKEN --output football/results.json
 
   run_bruno_trello_api_test:
     runs-on: ubuntu-latest
@@ -45,7 +42,4 @@ jobs:
       env:
         TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
         TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
-      run: bru run Trello --env Trello --env-var token=$TRELLO_TOKEN --env-var api_key=$TRELLO_API_KEY
-    - name: Save trello test results
-      run: bru run Trello --output trello/results.json
-      continue-on-error: true
+      run: bru run Trello --env Trello --env-var token=$TRELLO_TOKEN --env-var api_key=$TRELLO_API_KEY --output trello/results.json
