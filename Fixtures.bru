@@ -1,0 +1,15 @@
+meta {
+  name: Fixtures
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.sportmonks.com/v3/football/fixtures
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: {{token}}
+}
