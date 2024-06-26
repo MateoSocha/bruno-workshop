@@ -5,11 +5,15 @@ meta {
 }
 
 get {
-  url: https://api.sportmonks.com/v3/football/fixtures
+  url: {{base_url}}/football/fixtures
   body: none
   auth: none
 }
 
 headers {
   Authorization: {{token}}
+}
+
+assert {
+  res.status: eq 200
 }

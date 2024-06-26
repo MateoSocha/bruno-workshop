@@ -1,0 +1,36 @@
+meta {
+  name: Players
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/football/players?per_page=10
+  body: none
+  auth: none
+}
+
+query {
+  per_page: 10
+}
+
+headers {
+  Authorization: {{token}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.data: length 10
+  res.body.data[0].id: isNumber
+  res.body.data[0].firstname: isString
+  res.body.data[0].detailed_position_id: isNull
+  res.body.data: length 5
+}
+
+script:post-response {
+  bru.setVar("player_id", res.body.data[0].id);
+  bru.setVar("player_first_name", res.body.data[0].firstname);
+  bru.setVar("player_last_name", res.body.data[0].lastname);
+  bru.setVar("player_position_id", res.body.data[0].position_id);
+  bru.setVar("player_country_id", res.body.data[0].country_id);
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Player
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}//football/players/{{player_id}}
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: {{token}}
+}
+
+tests {
+  test("should be able to get player", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("firstname should be correct", function() {
+    const data = res.getBody();
+    expect(res.body.data.firstname).to.equal(bru.getVar("player_first_name"));
+  });
+  
+  test("lastname should be correct", function() {
+    const data = res.getBody();
+    expect(res.body.data.lastname).to.equal(bru.getVar("player_last_name"));
+  });
+}
+
+docs {
+  Player data validation test
+}
