@@ -1,0 +1,47 @@
+name: bruno cli CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run_bruno_football_api_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  
+    - name: Install Bruno CLI
+      run: npm install -g @usebruno/cli
+    - name: Check Bruno CLI installation
+      run: |
+        which bru
+        bru --version
+    - name: Run football tests
+      env:
+        FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_TOKEN }}
+      run: bru run Football --env Football --env-var token=$FOOTBALL_TOKEN
+
+  run_bruno_trello_api_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  
+    - name: Install Bruno CLI
+      run: npm install -g @usebruno/cli
+    - name: Check Bruno CLI installation
+      run: |
+        which bru
+        bru --version
+    - name: Run trello tests
+      env:
+        TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+        TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+      run: bru run Trello --env Trello --env-var token=$TRELLO_TOKEN --env-var api_key=$TRELLO_API_KEY

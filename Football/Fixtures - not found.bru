@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{base_url}}/football/fixtures
+  url: {{base_url}}/football/fixt
   body: none
   auth: none
+}
+
+headers {
+  Authorization: {{token}}
 }
 
 assert {

@@ -1,0 +1,91 @@
+[
+  {
+    "iterationIndex": 0,
+    "summary": {
+      "totalRequests": 3,
+      "passedRequests": 0,
+      "failedRequests": 3,
+      "totalAssertions": 0,
+      "passedAssertions": 0,
+      "failedAssertions": 0,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0
+    },
+    "results": [
+      {
+        "test": {
+          "filename": "Football/Fixtures.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://{{base_url}}/football/fixtures",
+          "headers": {
+            "Authorization": "{{token}}"
+          }
+        },
+        "response": {
+          "status": null,
+          "statusText": null,
+          "headers": null,
+          "data": null,
+          "responseTime": 0
+        },
+        "error": "getaddrinfo ENOTFOUND {{base_url}}",
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.018754208,
+        "suitename": "Football/Fixtures",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Football/Fixtures - no Auth.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://{{base_url}}/football/fixtures",
+          "headers": {}
+        },
+        "response": {
+          "status": null,
+          "statusText": null,
+          "headers": null,
+          "data": null,
+          "responseTime": 0
+        },
+        "error": "getaddrinfo ENOTFOUND {{base_url}}",
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.00754625,
+        "suitename": "Football/Fixtures - no Auth",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Football/Fixtures - not found.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://{{base_url}}/football/fixtures",
+          "headers": {
+            "Authorization": "{{token}}"
+          }
+        },
+        "response": {
+          "status": null,
+          "statusText": null,
+          "headers": null,
+          "data": null,
+          "responseTime": 0
+        },
+        "error": "getaddrinfo ENOTFOUND {{base_url}}",
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.008065875,
+        "suitename": "Football/Fixtures - not found",
+        "iterationIndex": 0
+      }
+    ]
+  }
+]
