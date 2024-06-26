@@ -1,0 +1,26 @@
+meta {
+  name: PUT Board
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{base_url}}/boards/{{board_id}}?key={{api_key}}&token={{token}}
+  body: json
+  auth: none
+}
+
+query {
+  key: {{api_key}}
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Test Board"
+  }
+}
+
+assert {
+  res.status: eq 200
+}

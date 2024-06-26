@@ -1,0 +1,19 @@
+meta {
+  name: Teams
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/football/teams/countries/{{player_country_id}}
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: {{token}}
+}
+
+assert {
+  res.status: eq 200
+}

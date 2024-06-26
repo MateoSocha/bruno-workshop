@@ -1,0 +1,25 @@
+meta {
+  name: GET Board
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/boards/{{board_id}}/lists?key={{api_key}}&token={{token}}
+  body: none
+  auth: none
+}
+
+query {
+  key: {{api_key}}
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 200
+  res.body: length 3
+}
+
+script:post-response {
+  bru.setVar("list_id", res.body[0].id);
+}

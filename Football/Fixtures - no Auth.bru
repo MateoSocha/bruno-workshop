@@ -1,0 +1,15 @@
+meta {
+  name: Fixtures - no Auth
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/football/fixtures
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 401
+}
