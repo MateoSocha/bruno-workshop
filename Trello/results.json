@@ -1,0 +1,97 @@
+[
+  {
+    "iterationIndex": 0,
+    "summary": {
+      "totalRequests": 3,
+      "passedRequests": 0,
+      "failedRequests": 3,
+      "totalAssertions": 0,
+      "passedAssertions": 0,
+      "failedAssertions": 0,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0
+    },
+    "results": [
+      {
+        "test": {
+          "filename": "Trello/GET Board.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://{{base_url}}/boards/{{board_id}}/lists?key={{api_key}}&token={{token}}",
+          "headers": {}
+        },
+        "response": {
+          "status": null,
+          "statusText": null,
+          "headers": null,
+          "data": null,
+          "responseTime": 0
+        },
+        "error": "getaddrinfo ENOTFOUND {{base_url}}",
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.035060708,
+        "suitename": "Trello/GET Board",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Trello/PUT Board.bru"
+        },
+        "request": {
+          "method": "PUT",
+          "url": "http://{{base_url}}/boards/{{board_id}}?key={{api_key}}&token={{token}}",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": {
+            "name": "Test Board"
+          }
+        },
+        "response": {
+          "status": null,
+          "statusText": null,
+          "headers": null,
+          "data": null,
+          "responseTime": 0
+        },
+        "error": "getaddrinfo ENOTFOUND {{base_url}}",
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.01286325,
+        "suitename": "Trello/PUT Board",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Trello/POST Card.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://{{base_url}}/cards?idList={{list_id}}&key={{api_key}}&token={{token}}",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": {
+            "name": "New Card by API"
+          }
+        },
+        "response": {
+          "status": null,
+          "statusText": null,
+          "headers": null,
+          "data": null,
+          "responseTime": 0
+        },
+        "error": "getaddrinfo ENOTFOUND {{base_url}}",
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.0109285,
+        "suitename": "Trello/POST Card",
+        "iterationIndex": 0
+      }
+    ]
+  }
+]
