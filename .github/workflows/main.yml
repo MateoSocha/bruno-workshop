@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '20'  
     - name: Install Bruno CLI
-      run: npm install -g @brunolabs/bru-cli
+      run: npm install -g @usebruno/cli
     - name: Check Bruno CLI installation
       run: |
         which bru
@@ -35,7 +35,7 @@ jobs:
       with:
         node-version: '20'  
     - name: Install Bruno CLI
-      run: npm install -g @brunolabs/bru-cli
+      run: npm install -g @usebruno/cli
     - name: Check Bruno CLI installation
       run: |
         which bru
